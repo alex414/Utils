@@ -9,8 +9,9 @@ read startip
 
 echo "Searching for hosts on $network_id.$startip-$endip..."
 
-for (( i=startip; i<=254; i++ )); do
+while(i<=254)
 ping -c 1 -w 1 "$192.168.1.$i"
+i++;
 done
 
 echo "Search complete..."
