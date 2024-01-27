@@ -1,9 +1,8 @@
 #!/bin/bash
-
 #Indentify all hosts on your subnet within a given range and update the arp cache
 
 network_id=$(ip -4 addr show eth0 | grep inet | awk -F" " {' print $2 '} | awk -F"." {'
-  print $1"."$2"."$3 '})
+print $1"."$2"."$3 '})
 
 echo -n "Starting IP: $network_id."
 read startip
