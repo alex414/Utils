@@ -9,9 +9,9 @@ read startip
 
 echo "Searching for hosts on $network_id.$startip-$endip..."
 
-while(i<=254)
-ping -c 1 -w 1 "$192.168.1.$i"
-i++;
+for (( i=startip; i<=254; i++ )); do
+ping -c 1 -w 1 "$network_id.$i"
+done
 
 echo "Search complete..."
 arp -e | grep -v incomplete > /root/Documents/arp_cache_$(date +%F)
