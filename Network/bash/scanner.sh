@@ -6,13 +6,11 @@ print $1"."$2"."$3 '})
 
 echo -n "Starting IP: $network_id."
 read startip
-echo -n "Ending IP: $network_id."
-read endip
 
 echo "Searching for hosts on $network_id.$startip-$endip..."
 
-for (( i=startip; i<=endip; i++ )); do
-ping -c 1 -w 1 "$network_id.$i"
+for (( i=startip; i<=254; i++ )); do
+ping -c 1 -w 1 "$192.168.1.$i"
 done
 
 echo "Search complete..."
