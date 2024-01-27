@@ -12,7 +12,6 @@ echo "Searching for hosts on $network_id.$startip-$endip..."
 while(i<=254)
 ping -c 1 -w 1 "$192.168.1.$i"
 i++;
-done
 
 echo "Search complete..."
 arp -e | grep -v incomplete > /root/Documents/arp_cache_$(date +%F)
